@@ -24,5 +24,6 @@ def save_article(article):
         f.write(f"# {article['title']}\n\n")
         f.write(f"Article URL: {article['html_url']} \n\n")
         f.write(content)
-
+        
+    return f"articles/{slug}.md"
 
