@@ -60,7 +60,8 @@ def get_or_create_vector_store():
             reset_state()
     
     url = VECTOR_STORE_API
-    response = requests.post(url, headers=HEADERS)
+    data = {"name": "support-articles"}
+    response = requests.post(url, headers=HEADERS, json=data)
     response.raise_for_status()
 
     new_id = response.json()["id"]
