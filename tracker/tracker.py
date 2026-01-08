@@ -26,7 +26,7 @@ def get_stored_vector_store_id():
 
 def save_vector_store_id(vector_store_id):
     state = load_state()
-    state["_meta"]["vector_store_id"] = vector_store_id
+    state.setdefault("_meta", {})["vector_store_id"] = vector_store_id
     save_state(state)
 
 def hash_article(article):
