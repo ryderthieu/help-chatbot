@@ -32,24 +32,24 @@ python main.py
 
 1. **Check Vector Store**
 
-   - Kiểm tra `vector_store_id` trong `state.json`.
-   - Nếu chưa tồn tại hoặc không hợp lệ → tạo mới.
+   - Check the `vector_store_id` in `state.json`.
+   - If it does not exist or is invalid → create a new one.
 
 2. **Process Articles**
 
-   - Tải articles và so sánh hash với state.
-   - Xác định trạng thái: **ADDED**, **UPDATED**, **SKIPPED**.
-   - Chỉ upload các file **ADDED** hoặc **UPDATED**.
-   - Nếu **UPDATED**, xóa file cũ trước khi upload file mới.
+   - Download articles and compare their hashes with the state.
+   - Determine the status: **ADDED**, **UPDATED**, **SKIPPED**.
+   - Only upload files that are **ADDED** or **UPDATED**.
+   - If **UPDATED**, delete the old file before uploading the new one.
 
 3. **Update State**
-   - Cập nhật `state.json` để lần chạy sau có thể detect delta.
-   - In ra số lượng: `ADDED`, `UPDATED`, `SKIPPED`.
+   - Update `state.json` so the next run can detect deltas.
+   - Print the counts: `ADDED`, `UPDATED`, `SKIPPED`.
 
 **Note:**
 
-- Articles được lưu trong `articles/` dưới dạng file markdown.
-- `state.json` sẽ tự động tạo trong `tracker/state.json` nếu chưa có.
+- Articles are stored in the `articles/` directory as markdown files.
+- `state.json` will be automatically created in `tracker/state.json` if it does not exist.
 - When uploading files, the default OpenAI chunking strategy will be used.
 
 # Assitant testing in playground
